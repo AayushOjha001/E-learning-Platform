@@ -15,7 +15,7 @@ class OrderField(models.PositiveBigIntegerField):
                         for field in self.for_fields
                     }
                     qs = qs.filter(**query)
-                last_item = qs.lastest(self.attname)
+                last_item = qs.latest(self.attname)
                 value = getattr(last_item, self.attname)+1
             except ObjectDoesNotExist:
                 value = 0
